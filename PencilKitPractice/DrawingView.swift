@@ -13,6 +13,13 @@ struct CanvasView: UIViewRepresentable {
     
     func makeUIView(context: Context) -> PKCanvasView {
         let canvasView = PKCanvasView()
+        // canvasView.contentSize = CGSize(width: 600, height: 600)
+        canvasView.tool = PKInkingTool(.pen, color: .orange, width: 30)
+        canvasView.isRulerActive = false
+        canvasView.drawingPolicy = .default // Check if drawing policy affects users without apple pencil
+        canvasView.horizontalScrollIndicatorInsets.top = 100    // Don't really know what this does
+        canvasView.verticalScrollIndicatorInsets.bottom = 100   // Don't really know what this does
+        canvasView.backgroundColor = .brown
         return canvasView
     }
     
